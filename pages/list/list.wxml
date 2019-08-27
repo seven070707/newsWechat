@@ -1,3 +1,6 @@
+<view class='view-page'>
+  <navbar page-name="快读资讯"></navbar>
+</view>
 <view class='container'>
  <view class="title">{{title}}</view>
   

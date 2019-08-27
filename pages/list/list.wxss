@@ -10,6 +10,7 @@
   /* opacity: 0.8; */
   font-size: 40rpx;
   line-height: 56rpx;
+  margin: 20rpx auto;
 }
 
 .item{

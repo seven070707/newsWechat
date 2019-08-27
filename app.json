@@ -9,6 +9,7 @@
     }
   },
   "window": {
+    "navigationStyle": "custom",
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#1F97D7",
     "navigationBarTitleText": "快读·资讯",

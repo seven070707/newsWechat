@@ -1,3 +1,6 @@
+<view class='view-page'>
+  <navbar page-name="快读资讯"></navbar>
+</view>
 <scroll-view scroll-x>
   <view class='forecast-list'>
     <view class="forecast-item" bindtap='onTapMessage' data-index="{{index}}" wx:for="{{typeArray}}">
