@@ -1,0 +1,31 @@
+<scroll-view scroll-x>
+  <view class='forecast-list'>
+    <view class="forecast-item" bindtap='onTapMessage' data-index="{{index}}" wx:for="{{typeArray}}">
+      <view class= 'forecast-type {{index == activeIndex ? "active" :"" }}' >{{item.type}}</view>
+    </view>
+  </view>
+</scroll-view>
+
+<view class='container'>
+<block wx:for='{{dataList}}' wx:key='id'>
+ <view class='newsitem'>
+   <view class='news-text'>
+     <text class='title' bindtap='onTapMessageDetail' data-id="{{item.id}}">{{item.title}}</text>
+     <view class= 'bottext'>  
+        <text class='author'>{{item.source}}</text>  
+        <text class='date'>{{item.date}}</text>    
+     </view>
+   </view>
+   <view wx:if="{{item.firstImage}}">
+    <view class="img-wrap">
+      <image src='{{item.firstImage}}' class='img'></image>
+    </view>
+   </view>
+   <view wx:else>
+    <view class="img-wrap">
+      <image src="//inews.gtimg.com/newsapp_bt/0/8148265330/641" class='img'></image>
+    </view>
+   </view>
+ </view>
+</block>
+</view>

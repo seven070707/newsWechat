@@ -1,0 +1,22 @@
+<view class='container'>
+ <view class="title">{{title}}</view>
+  
+</view>
+<view class="item">
+    <view class="source">{{source}}</view>
+    <view class="date">{{date}}</view>
+    <view class="readCount">{{readCount}}</view>
+</view>
+
+<view class="contentitem">
+  <view class="content" data-index="{{index}}" wx:for="{{content}}">
+    <view wx:if="{{item.src}}">
+      <view class="imagesize">
+        <image src='{{item.src}}' class='image'></image>
+      </view>
+    </view>
+    <view wx:else>
+      <view class="text">{{item.text}}</view>
+    </view>
+  </view>
+</view>
