@@ -9,6 +9,18 @@
   </view>
 </scroll-view>
 
+<!-- 设置轮播 -->
+<view class='haibao' >
+  <swiper indicator-dots='{{indicatorDots}}' autoplay='{{autoplay}}' interval='{{interval}}' duration='{{duration}}' circular='true' indicator-dots='true' circular='{{circular}}' >
+    <block wx:for="{{dataList}}">
+      <swiper-item>
+        <image src='{{item.firstImage}}' class='slide-image' binderror="errorFunction" bindtap="onTapMessageDetail" data-id='{{item.id}}' ></image>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+<!-- 设置主列表 -->
 <view class='container'>
 <block wx:for='{{dataList}}' wx:key='id'>
  <view class='newsitem'>

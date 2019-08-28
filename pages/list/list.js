@@ -3,7 +3,9 @@ Page({
   date: {
     title:0,
     id:0,
-    content:[]
+    content:[],
+    //设置默认新闻来源
+    defaultSource: "网络来源",
   },
   onLoad(options) {
     this.setData({
@@ -27,18 +29,29 @@ Page({
         let result = res.data.result
         this.setMessageDetail(result)
       },
+      fail: err => {
+        // 请求失败的操作
+        console.info("url request fail");
+      },
       complete: ()=>{
         callback && callback()
       }
     })
   },
   setMessageDetail(result){
-    console.log(result);
+    // console.log(result);
+    //重新设置日期格式
     var h = new Date(result.date).getHours();
     h = h < 10 ? ('0' + h) : h;
     var minute = new Date(result.date).getMinutes();
     minute = minute < 10 ? ('0' + minute) : minute;
     var date = h + ':' + minute
+
+    //判空新闻来源，如果没有新闻来源，设置为一个默认值
+    if (!result.source) {
+      result.source = this.data.defaultSource
+    }
+
     this.setData({
       title:result.title,
       source:result.source,

@@ -30,6 +30,20 @@ Page({
     typeMessage:'gn',
     // 列表数据数组
     dataList: [],
+
+    //设置默认新闻来源
+    defaultSource:"网络来源",
+
+    defaultFirstImage:"//inews.gtimg.com/newsapp_bt/0/8148265330/641",
+
+    //设置轮播图片
+    //logoPaths:[],
+    // 轮播图
+    indicatorDots: true,
+    autoplay: true,
+    interval: 3000,
+    duration: 500,
+    circular: true,
   },
   onLoad() {
     this.getNewsList()
@@ -48,15 +62,33 @@ Page({
       success: res => {
         let result = res.data.result
         console.log(result)
+        var logoPaths = [];
         result && result.map((v,k)=>{
+          //重新设置日期格式
           var h = new Date(v.date).getHours();
           h = h < 10 ? ('0' + h) : h;
           var minute = new Date(v.date).getMinutes();
           minute = minute < 10 ? ('0' + minute) : minute;
           v.date = h + ':' + minute
+
+          //判空新闻来源，如果没有新闻来源，设置为一个默认值
+          if (!v.source){
+            v.source = this.data.defaultSource
+          }
+
+          //判空新闻图片，如果没有新闻图片，设置一个默认值
+          if( !v.firstImage ){
+            v.firstImage = this.data.defaultFirstImage
+          }
+
+          //设置到轮播图变量中
+          //logoPaths.push(v.firstImage);
+          //console.log(logoPaths);
         })
         this.setData({
-          dataList:result
+          dataList:result,
+          //logoPaths: logoPaths
+
         });
       },
       complete: () =>{
