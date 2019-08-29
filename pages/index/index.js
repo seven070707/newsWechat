@@ -36,8 +36,6 @@ Page({
 
     defaultFirstImage:"//inews.gtimg.com/newsapp_bt/0/8148265330/641",
 
-    //设置轮播图片
-    //logoPaths:[],
     // 轮播图
     indicatorDots: true,
     autoplay: true,
@@ -80,19 +78,13 @@ Page({
           if( !v.firstImage ){
             v.firstImage = this.data.defaultFirstImage
           }
-
-          //设置到轮播图变量中
-          //logoPaths.push(v.firstImage);
-          //console.log(logoPaths);
         })
         this.setData({
           dataList:result,
-          //logoPaths: logoPaths
-
         });
       },
       complete: () =>{
-        callback && callback()
+        typeof callback === 'function' && callback()
       }
     })
   },

@@ -1,6 +1,6 @@
 
 Page({
-  date: {
+  data: {
     title:0,
     id:0,
     content:[],
@@ -34,7 +34,7 @@ Page({
         console.info("url request fail");
       },
       complete: ()=>{
-        callback && callback()
+        typeof callback === 'function' && callback()
       }
     })
   },
